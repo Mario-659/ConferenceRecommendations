@@ -10,7 +10,6 @@ import static org.junit.Assert.*;
 
 public class FileReaderTest {
     @Test public void readPersonsTest(){
-        FileReader fileReader;
         Person[] persons = FileReader.readPersons(System.getProperty("user.dir") + "\\src\\test\\java\\zad1\\testInput.txt");
         //TODO assert exceptions, check how it handles path string as name of the file
 

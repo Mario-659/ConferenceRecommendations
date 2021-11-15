@@ -27,8 +27,15 @@ public class Person {
         wantedAttributes.addAll(Arrays.asList(attr));
     }
 
-
     public int getId(){
         return this.id;
+    }
+
+    public HashSet<String> getAttributes(){
+        return this.attributes;
+    }
+
+    public HashSet<String> getWantedAttributes(){
+        return this.wantedAttributes;
     }
 }
