@@ -17,6 +17,8 @@ public class Algorithm {
     }
 
     public static int comparePersons(Person person1, Person person2){
+        if(person1==null || person2==null) return 0;
+
         assert person1.getId() != person2.getId(): "Cannot compare persons with the same id. Id of a person: " + person1.getId();
 
         int value = 0;

@@ -1,10 +1,9 @@
 package zad1;
 
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 import java.util.HashSet;
-
-import static org.junit.Assert.*;
 
 public class AlgorithmTest {
 
