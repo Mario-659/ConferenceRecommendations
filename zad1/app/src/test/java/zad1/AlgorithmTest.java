@@ -1,23 +1,33 @@
-//package zad1;
-//
-//import fileReader.FileReader;
-//import person.Person;
-//import org.junit.Test;
-//import static org.junit.Assert.*;
-//
-//import java.util.HashSet;
-//
-//public class AlgorithmTest {
-//
-//
-//
-//    @Test public void compareAttr() {
-//        Person[] persons = FileReader.readPersons(System.getProperty("user.dir") + "\\src\\test\\java\\zad1\\testInput.txt");
-//
-//        assertEquals(0, Algorithm.compareAttr(persons[0].getAttributes(), persons[1].getWantedAttributes()));
-//
-//        assertEquals(1, Algorithm.compareAttr(persons[0].getAttributes(), persons[2].getWantedAttributes()));
-//
+package zad1;
+
+import algorithm.Algorithm;
+import population.Person;
+import population.ParseTSV;
+import population.Population;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class AlgorithmTest {
+
+
+
+    @Test public void compareAttr() {
+        List<String> TSVData = new ArrayList<String>();
+        TSVData.add("1\tDEVELOPER\tINVESTOR,DEVELOPER");
+        TSVData.add("6\tARCHITECT\tINVESTOR,PROJECT_MANAGER,DEVELOPER");
+        TSVData.add("13\tMARKETING\tMARKETING,SALES");
+        Population population = new Population(TSVData, new ParseTSV());
+
+        Person person1 = population.getPerson(0);
+        Person person2 = population.getPerson(1);
+        Person person3 = population.getPerson(2);
+
+        assertEquals(2, Algorithm.compareAttr(person1.getWantedAttributes(), person2.getWantedAttributes()));}
+
 //        for (Person person : persons) {
 //            HashSet<String> attr1 = person.getAttributes();
 //            HashSet<String> attr2 = person.getWantedAttributes();
@@ -53,4 +63,4 @@
 //        Throwable exception = assertThrows(AssertionError.class, () -> Algorithm.comparePersons(finalPerson1, finalPerson));
 //        assertEquals(exception.getMessage(), "Cannot compare persons with the same id. Id of a person: " + person1.getId());
 //    }
-//}
+}

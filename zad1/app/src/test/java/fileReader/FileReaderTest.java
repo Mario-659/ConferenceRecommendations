@@ -1,12 +1,10 @@
 package fileReader;
 
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.util.List;
-
-import static org.junit.Assert.*;
-
 
 public class FileReaderTest {
 
@@ -29,7 +27,4 @@ public class FileReaderTest {
         assertThrows(IOException.class,  () -> fileReader.readFile(invalidPath));
 
     }
-
-
-
 }
