@@ -1,5 +1,4 @@
-package zad1;
-
+package person;
 
 import java.util.Arrays;
 import java.util.HashSet;

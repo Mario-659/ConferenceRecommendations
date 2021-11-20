@@ -1,13 +1,13 @@
 package zad1;
 
 
+import person.Person;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class State {
-    // might not be useful
-//    public Person[] persons;
+    public Person[] persons;
 
     private HashMap<Person, Person> connections;
 
@@ -17,14 +17,13 @@ public class State {
     public State(HashMap<Person, Person> connections){
         this.connections = new HashMap<Person, Person>(connections);
 
-//        ArrayList<Person> personsArray = new ArrayList<Person>();
-//        connections.forEach( (person, connectedPerson) -> {
-//            personsArray.add(person);
-//            //might add check if connection not null (when length of persons%2 == 1)
-//            personsArray.add(connectedPerson);
-//        });
-//
-//        personsArray.toArray(this.persons);
+        ArrayList<Person> personsArray = new ArrayList<Person>();
+        connections.forEach( (person, connectedPerson) -> {
+            personsArray.add(person);
+            personsArray.add(connectedPerson);
+        });
+
+        personsArray.toArray(this.persons);
         stateValue = evaluateState();
     }
 
@@ -42,13 +41,6 @@ public class State {
         return value;
     }
 
-    //updates connections, stateValue should be equal or higher than before
-    public void update(){
-        for(Person person1: connections.keySet()){
-
-
-        }
-    };
 
     public int getStateValue(){
         return stateValue;

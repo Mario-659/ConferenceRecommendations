@@ -1,8 +1,9 @@
 package zad1;
 
 
+import person.Person;
+
 import java.util.HashSet;
-import java.util.Iterator;
 
 public class Algorithm {
 
