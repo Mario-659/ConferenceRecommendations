@@ -1,31 +1,28 @@
-package State;
+package state;
 
-import population.Person;
+import data.Person;
 import tools.Rand;
 
 import java.util.ArrayList;
 import java.util.List;
 
 //TODO not actually a DNA, a DNA is all connections of a person, change name of this class
-public class DNA {
-    List<Genome> genomes;
-    int value;
+
+public class State {
+    List<Genome> bestGenomes;
+    int score;
 
     private void evaluate(){
-        int score = 0;
-        for (Genome genome :
-                genomes) {
-            score += genome.getFitness();
-        }
-        this.value = score;
+        int value = 0;
+        for (Genome genome : bestGenomes) { value += genome.getFitness(); }
+        this.score = value;
     }
 
-    public DNA(List<Person> persons, int numOfConnections){
-        genomes = new ArrayList<>();
-        for (Person person :
-                persons) {
+    public State(List<Person> persons, int numOfConnections){
+        bestGenomes = new ArrayList<>();
+        for (Person person : persons) {
             List<Person> connections = Rand.makeRandConnections(persons, person, numOfConnections);
-            genomes.add(new Genome(person, connections));
+            bestGenomes.add(new Genome(person, connections));
         }
         evaluate();
     }
@@ -33,14 +30,14 @@ public class DNA {
     public String toString(){
         StringBuilder string = new StringBuilder();
         string.append("Value of configuration: ");
-        string.append(value);
+        string.append(score);
         for (Genome genome :
-                genomes) {
+                bestGenomes) {
             string.append("\n");
             string.append(genome.toString());
         }
         return string.toString();
     }
 
-    public int getValue(){return value;}
+    public int getScore(){return score;}
 }

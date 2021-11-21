@@ -1,9 +1,8 @@
 package state;
 
-import State.Genome;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import population.Person;
+import data.Person;
 
 import java.util.Arrays;
 import java.util.List;

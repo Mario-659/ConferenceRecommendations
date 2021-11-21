@@ -25,6 +25,5 @@ public class FileReaderTest {
 
         String invalidPath = System.getProperty("user.dir") + "\\src\\test\\java\\fileReader\\input.txt";
         assertThrows(IOException.class,  () -> fileReader.readFile(invalidPath));
-
     }
 }

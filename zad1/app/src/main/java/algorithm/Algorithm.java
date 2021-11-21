@@ -1,6 +1,6 @@
 package algorithm;
 
-import population.Person;
+import data.Person;
 
 import java.util.HashSet;
 import java.util.List;

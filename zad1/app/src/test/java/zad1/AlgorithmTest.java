@@ -1,9 +1,9 @@
 package zad1;
 
 import algorithm.Algorithm;
-import population.Person;
-import population.ParseTSV;
-import population.Population;
+import data.Person;
+import data.ParseTSV;
+import data.DataReader;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -20,7 +20,7 @@ public class AlgorithmTest {
         TSVData.add("1\tDEVELOPER\tINVESTOR,DEVELOPER");
         TSVData.add("6\tARCHITECT\tINVESTOR,PROJECT_MANAGER,DEVELOPER");
         TSVData.add("13\tMARKETING\tMARKETING,SALES");
-        Population population = new Population(TSVData, new ParseTSV());
+        DataReader population = new DataReader(TSVData, new ParseTSV());
 
         Person person1 = population.getPerson(0);
         Person person2 = population.getPerson(1);

@@ -1,7 +1,7 @@
 package tools;
 
 import org.junit.Test;
-import population.Person;
+import data.Person;
 
 import java.util.ArrayList;
 import java.util.Arrays;

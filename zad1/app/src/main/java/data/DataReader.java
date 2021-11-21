@@ -1,14 +1,14 @@
-package population;
+package data;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Population {
+public class DataReader {
     private final ParseStrategy strategy;
 
     private List<Person> persons;
 
-    public Population(List<String> data, ParseStrategy strategy){
+    public DataReader(List<String> data, ParseStrategy strategy){
         this.strategy = strategy;
         this.persons = new ArrayList<Person>();
         readPersons(data);
@@ -27,6 +27,8 @@ public class Population {
     public Person getPerson(int index){
         return persons.get(index);
     }
+
+    public List<Person> getPersons() {return this.persons;}
 
     public int size(){ return persons.size();}
 }

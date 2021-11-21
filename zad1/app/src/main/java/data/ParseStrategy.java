@@ -1,4 +1,4 @@
-package population;
+package data;
 
 //Parsing strategy for different types of data (csv, tsv)
 public interface ParseStrategy {

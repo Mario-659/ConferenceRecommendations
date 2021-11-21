@@ -1,4 +1,4 @@
-package population;
+package data;
 
 public class ParseTSV implements ParseStrategy {
     private int id;
