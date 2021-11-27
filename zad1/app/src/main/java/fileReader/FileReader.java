@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class FileReader {
-    private ReadStrategy strategy;
+    private final ReadStrategy strategy;
 
     private List<String> lines;
 

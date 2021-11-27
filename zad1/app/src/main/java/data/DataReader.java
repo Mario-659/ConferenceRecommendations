@@ -6,11 +6,11 @@ import java.util.List;
 public class DataReader {
     private final ParseStrategy strategy;
 
-    private List<Person> persons;
+    private final List<Person> persons;
 
     public DataReader(List<String> data, ParseStrategy strategy){
         this.strategy = strategy;
-        this.persons = new ArrayList<Person>();
+        this.persons = new ArrayList<>();
         readPersons(data);
     }
 

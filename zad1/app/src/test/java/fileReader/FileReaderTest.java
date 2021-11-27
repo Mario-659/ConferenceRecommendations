@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.List;
 
 public class FileReaderTest {
-
     @Test public void readTxtFile(){
         FileReader fileReader = new FileReader(new TxtStrategy());
         String path = System.getProperty("user.dir") + "\\src\\test\\resources\\testInput.txt";
@@ -20,7 +19,7 @@ public class FileReaderTest {
             assertEquals(13, data.size());
         }
         catch(Exception e){
-            System.out.println(e.toString());
+            System.out.println(e);
             fail();
         }
 

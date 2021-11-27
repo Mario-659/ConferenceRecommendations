@@ -8,10 +8,11 @@ import java.util.List;
 import java.util.Random;
 
 public class Rand {
-    private static Random generator = new Random();
+    private static final Random generator = new Random();
 
     public static List<Person> makeRandConnections(List<Person> persons, Person exclude, int numOfConnections){
         assert persons.size() > numOfConnections: "Size of list must be greater than number of connections";
+
         List<Person> randList = new ArrayList<>(persons);
         Collections.shuffle(randList);
         List<Person> randConnections = new ArrayList<>();
@@ -23,22 +24,10 @@ public class Rand {
         return randConnections;
     }
 
-    public static boolean getBool(int chance){
-        return chance >= getRandInt(100);
-    }
+    public static boolean getBool(int chance){ return chance >= getRandInt(100); }
 
-    public static int getRandInt(int max){
-        return generator.nextInt(max);
-    }
+    public static int getRandInt(int max){ return generator.nextInt(max); }
 
-    public static int getRandInt(int min, int max){
-        return generator.nextInt(max - min) + min;
-    }
+    public static int getRandInt(int min, int max){ return generator.nextInt(max - min) + min; }
 
-    public static int getRandInt(int min, int max, int exclude){
-        while(true){
-            int number = getRandInt(min, max);
-            if(number != exclude) return number;
-        }
-    }
 }
