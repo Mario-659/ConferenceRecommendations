@@ -1,16 +1,18 @@
 package algorithmTest;
 
-import algorithm.mutation.RandomMutation;
+import algorithm.crossover.RankSelection;
 import data.Person;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import state.Genome;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
-public class RandomMutationTest {
+import static org.junit.Assert.*;
+
+public class RankSelectionTest{
     private final List<Person> persons = Arrays.asList(
             new Person(1, new String[]{"DEVELOPER"}, new String[]{"DEVELOPER","ARCHITECT","PROBLEM_SOLVER","DESIGNER"}),
             new Person(2, new String[]{"INVESTOR"}, new String[]{"DEVELOPER","PROBLEM_SOLVER","ARCHITECT"}),
@@ -18,15 +20,22 @@ public class RandomMutationTest {
             new Person(4, new String[]{"ARCHITECT"}, new String[]{"DEVELOPER","PROBLEM_SOLVER"}),
             new Person(5, new String[]{"PROBLEM_SOLVER"}, new String[]{"INVESTOR","PROBLEM_SOLVER","DEVELOPER"}));
 
-    private final List<Person> connections = new ArrayList<>(persons.subList(0, 3));
-    Genome genome = new Genome(persons.get(1), connections);
+    private Genome genome1 = new Genome(persons.get(0), persons.subList(1, 3));
+    private Genome genome2 = new Genome(persons.get(0), persons.subList(2, 4));
+    private Genome genome3 = new Genome(persons.get(0), persons.subList(1, 3));
+    private Genome genome4 = new Genome(persons.get(0), persons.subList(2, 4));
 
-    private final RandomMutation randomMutation = new RandomMutation(persons);
-    Genome newGenome = randomMutation.mutate(genome, 2);
+    List<Genome> parents = Arrays.asList(genome1, genome2, genome3, genome4);
 
-    @Test public void sameSize(){
-        int oldSize = genome.getConnections().size();
-        int newSize =  newGenome.getConnections().size();
-        assertEquals(oldSize, newSize);
+    RankSelection rankSelection = new RankSelection();
+
+    private List<Genome> offspring = rankSelection.cross(parents);
+
+    @Test
+    public void sameNumOfOffspringAsParents(){
+        assertEquals(parents.size(), offspring.size());
+
     }
+
+
 }

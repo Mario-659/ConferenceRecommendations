@@ -27,27 +27,28 @@ public class CrossoverTest extends RankSelection {
     private Genome genome1 = new Genome(persons.get(0), persons.subList(1, 3));
     private Genome genome2 = new Genome(persons.get(0), persons.subList(2, 4));
 
-    private Genome child = cross(genome1, genome2);
+    private List<Genome> offspring = cross(genome1, genome2);
 
     @Test
     public void sameNumOfConnections(){
-        assertEquals(genome1.getConnections().size(), child.getConnections().size());
+        assertEquals(genome1.getConnections().size(), offspring.get(0).getConnections().size());
+        assertEquals(genome1.getConnections().size(), offspring.get(1).getConnections().size());
     }
 
     @Test
     public void noDuplicates(){
-        List<Person> connections = child.getConnections();
+        List<Person> connections = offspring.get(0).getConnections();
         HashSet<Person> connectionsHash = new HashSet<>(connections);
+        assertEquals(connectionsHash.size(), connections.size());
+
+        connections = offspring.get(1).getConnections();
+        connectionsHash = new HashSet<>(connections);
         assertEquals(connectionsHash.size(), connections.size());
     }
 
     @Test
-    public void testo(){
-        System.out.println(genome1.toString());
-        System.out.println(genome2.toString());
-
-        System.out.println(child.toString());
-
-
+    public void sameNumOfGenomes(){
+        assertEquals(2, offspring.size());
     }
+
 }

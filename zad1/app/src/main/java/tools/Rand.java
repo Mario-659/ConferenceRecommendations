@@ -23,6 +23,10 @@ public class Rand {
         return randConnections;
     }
 
+    public static boolean getBool(int chance){
+        return chance >= getRandInt(100);
+    }
+
     public static int getRandInt(int max){
         return generator.nextInt(max);
     }

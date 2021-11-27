@@ -10,7 +10,7 @@ public class FileReaderTest {
 
     @Test public void readTxtFile(){
         FileReader fileReader = new FileReader(new TxtStrategy());
-        String path = System.getProperty("user.dir") + "\\src\\test\\java\\resources\\testInput.txt";
+        String path = System.getProperty("user.dir") + "\\src\\test\\resources\\testInput.txt";
 
         try{
             fileReader.readFile(path);
@@ -20,7 +20,8 @@ public class FileReaderTest {
             assertEquals(13, data.size());
         }
         catch(Exception e){
-            System.out.println(e.getMessage());
+            System.out.println(e.toString());
+            fail();
         }
 
         String invalidPath = System.getProperty("user.dir") + "\\src\\test\\java\\fileReader\\input.txt";

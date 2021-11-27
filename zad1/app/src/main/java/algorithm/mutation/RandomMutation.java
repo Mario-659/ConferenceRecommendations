@@ -10,17 +10,21 @@ import java.util.List;
 public class RandomMutation implements Mutation {
     private final List<Person> allPersons;
 
+    private final int CHANCE_OF_MUTATION = 25;
+
     public RandomMutation(List<Person> allPersons){
         this.allPersons = allPersons;
     }
 
     @Override
     public Genome mutate(Genome genome) {
-        return null;
+        return mutate(genome, 1);
     }
 
     @Override
     public Genome mutate(Genome genome, int numOfMutations) {
+        if(!Rand.getBool(25)) return genome;
+
         //TODO refactor to makePossibleConnections method
         List<Person> oldConnections = genome.getConnections();
         List<Person> possibleMutations = new ArrayList<>();
@@ -45,6 +49,11 @@ public class RandomMutation implements Mutation {
 
     @Override
     public List<Genome> mutate(List<Genome> genomes) {
-        return null;
+        List<Genome> newGenomes = new ArrayList<>();
+
+        for (Genome genome : genomes) {
+            newGenomes.add(mutate(genome));
+        }
+        return newGenomes;
     }
 }
