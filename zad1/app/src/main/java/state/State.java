@@ -9,6 +9,8 @@ import java.util.List;
 //TODO not actually a DNA, a DNA is all connections of a person, change name of this class
 
 public class State {
+    private static final int NUM_OF_CONNECTIONS = 5;
+
     List<Genome> bestGenomes;
     int score;
 
@@ -26,6 +28,8 @@ public class State {
         }
         evaluate();
     }
+
+    public State(List<Person> persons) {this(persons, NUM_OF_CONNECTIONS);}
 
     public String toString(){
         StringBuilder string = new StringBuilder();

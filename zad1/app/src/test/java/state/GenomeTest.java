@@ -16,10 +16,10 @@ public class GenomeTest {
     Genome genome = new Genome(persons.get(1), persons);
 
     @Test public void evaluatedFitness(){
-        assertEquals(4, genome.getFitness());
+        assertEquals(1, genome.getFitness());
     }
 
     @Test public void testToString(){
-        assertEquals("Person id: 2 Fitness: 4 Recommendations: { 1, 3,}", genome.toString());
+        assertEquals("Person id: 2 Fitness: 1 Recommendations: { 1, 3,}", genome.toString());
     }
 }

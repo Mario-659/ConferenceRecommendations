@@ -1,4 +1,4 @@
-package zad1;
+package algorithmTest;
 
 import algorithm.Algorithm;
 import data.Person;

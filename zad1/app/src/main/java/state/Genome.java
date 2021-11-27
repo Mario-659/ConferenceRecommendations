@@ -29,6 +29,8 @@ public class Genome {
         return fitness;
     }
 
+    public Person getPerson(){return person;}
+
     public List<Person> getConnections(){
         return new ArrayList<>(connections);
     }

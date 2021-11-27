@@ -16,18 +16,20 @@ public class Algorithm {
         return value;
     }
 
-    public static int comparePersons(Person person1, Person person2){
-        if(person1==null || person2==null) return 0;
-        assert person1.getId() != person2.getId(): "Cannot compare persons with the same id. Id of a person: " + person1.getId();
-
-        return compareAttr(person1.getWantedAttributes(), person2.getWantedAttributes());
-    }
+//    public static int comparePersons(Person person1, Person person2){
+//        if(person1==null || person2==null) return 0;
+//        assert person1.getId() != person2.getId(): "Cannot compare persons with the same id. Id of a person: " + person1.getId();
+//
+//        return compareAttr(person1.getWantedAttributes(), person2.getWantedAttributes());
+//    }
 
     public static int evaluateFitness(Person person, List<Person> connections){
         int fitness = 0;
-        HashSet<String> attr1 = person.getWantedAttributes();
         for (Person person2:connections) {
-            fitness += compareAttr(attr1, person2.getWantedAttributes());
+            assert person.getId() != person2.getId(): "Cannot compare persons with the same id. Id of a person: " + person.getId();
+
+            fitness += compareAttr(person.getWantedAttributes(), person2.getAttributes());
+//            fitness += compareAttr(person.getAttributes(), person2.getWantedAttributes());
         }
         return fitness;
     }

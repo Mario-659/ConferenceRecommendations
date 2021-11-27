@@ -23,4 +23,18 @@ public class Rand {
         return randConnections;
     }
 
+    public static int getRandInt(int max){
+        return generator.nextInt(max);
+    }
+
+    public static int getRandInt(int min, int max){
+        return generator.nextInt(max - min) + min;
+    }
+
+    public static int getRandInt(int min, int max, int exclude){
+        while(true){
+            int number = getRandInt(min, max);
+            if(number != exclude) return number;
+        }
+    }
 }

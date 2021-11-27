@@ -16,7 +16,8 @@ public class StateTest {
 
     State state = new State(persons, 2);
 
+
     @Test public void valueAfterCreation(){
-        assertEquals(10, state.getScore());
+        assertEquals(3, state.getScore());
     }
 }

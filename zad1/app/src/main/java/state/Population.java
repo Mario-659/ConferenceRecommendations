@@ -1,13 +1,15 @@
 package state;
 
 import data.Person;
-import state.crossover.Crossover;
-import state.mutation.Mutation;
+import algorithm.crossover.Crossover;
+import algorithm.mutation.Mutation;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Population {
+    private static final int SIZE_OF_POPULATION = 4;
+
     private final Mutation mutation;
     private final Crossover crossover;
     private List<Genome> genomes;
@@ -34,14 +36,13 @@ public class Population {
 
     private void populate(Genome genome){
         genomes = new ArrayList<>();
-        List<Person> initialConnections = genome.getConnections();
-
-
-
+        for(int i=0; i<SIZE_OF_POPULATION; i++){
+            genomes.add(mutation.mutate(genome, 3));
+        }
     }
 
     private void mate(){
-
+        genomes = crossover.cross(genomes);
     }
 
     private void mutate(){ genomes = mutation.mutate(genomes);}
