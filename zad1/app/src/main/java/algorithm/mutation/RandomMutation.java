@@ -10,7 +10,7 @@ import java.util.List;
 public class RandomMutation implements Mutation {
     private final List<Person> allPersons;
 
-    private final int CHANCE_OF_MUTATION = 25;
+    private final int CHANCE_OF_MUTATION = 50;
 
     public RandomMutation(List<Person> allPersons){
         this.allPersons = allPersons;
@@ -18,7 +18,7 @@ public class RandomMutation implements Mutation {
 
     @Override
     public Genome mutate(Genome genome) {
-        return mutate(genome, 1);
+        return mutate(genome, 3);
     }
 
     @Override

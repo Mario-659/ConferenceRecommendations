@@ -16,7 +16,7 @@ public class Mate {
      }
 
      public List<Genome> mate(List<Genome> population){
-        List<Genome> parents = selection.select(population);
-        return crossover.crossover(parents);
+         List<Genome> newGeneration = crossover.crossover(population);
+         return selection.select(newGeneration);
      }
 }

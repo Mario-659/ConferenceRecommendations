@@ -23,6 +23,17 @@ public class efficiencyTest {
         for(int i=0; i<NUM_OF_RUNS; i++){
             changes.add(runApp());
         }
+        int average = calcAverage();
+        System.out.println("Average change: " + average);
+    }
+
+    private int calcAverage(){
+        long sum = 0;
+        for (Integer change : changes) {
+            sum += change;
+        }
+        return (int) sum/changes.size();
+
     }
 
     @Test
