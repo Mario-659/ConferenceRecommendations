@@ -1,7 +1,7 @@
 package state;
 
+import algorithm.mate.Mate;
 import data.Person;
-import algorithm.crossover.Crossover;
 import algorithm.mutation.Mutation;
 
 import java.util.ArrayList;
@@ -11,13 +11,13 @@ public class Population {
     private static final int SIZE_OF_POPULATION = 4;
 
     private final Mutation mutation;
-    private final Crossover crossover;
+    private final Mate mate;
     private List<Genome> genomes;
 
 
-    public Population(Genome initialGenome, Mutation mutation, Crossover crossover){
+    public Population(Genome initialGenome, Mutation mutation, Mate mate){
         this.mutation = mutation;
-        this.crossover = crossover;
+        this.mate = mate;
         populate(initialGenome);
     }
 
@@ -42,7 +42,7 @@ public class Population {
     }
 
     private void mate(){
-        genomes = crossover.cross(genomes);
+        genomes = this.mate.mate(genomes);
     }
 
     private void mutate(){ genomes = mutation.mutate(genomes);}

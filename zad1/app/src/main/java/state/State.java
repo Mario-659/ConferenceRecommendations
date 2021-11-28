@@ -1,6 +1,8 @@
 package state;
 
-import algorithm.crossover.RankSelection;
+import algorithm.mate.Mate;
+import algorithm.mate.crossover.RandomGenes;
+import algorithm.mate.selection.RankSelection;
 import algorithm.mutation.RandomMutation;
 import data.Person;
 import tools.Rand;
@@ -38,7 +40,8 @@ public class State {
         }
         populations = new ArrayList<>();
         for (Genome genome : bestGenomes) {
-            populations.add(new Population(genome, new RandomMutation(persons), new RankSelection()));
+            Mate matingStrategy = new Mate(new RandomGenes(), new RankSelection());
+            populations.add(new Population(genome, new RandomMutation(persons), matingStrategy));
         }
         evaluate();
     }

@@ -34,6 +34,8 @@ public class App {
         System.out.println("End configuration:\n" + state);
     }
 
+    public State getState(){ return state;}
+
     private FileReader fileReader;
     private DataReader dataReader;
     private final State state;

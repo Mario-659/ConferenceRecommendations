@@ -28,6 +28,8 @@ public class Rand {
 
     public static int getRandInt(int max){ return generator.nextInt(max); }
 
-    public static int getRandInt(int min, int max){ return generator.nextInt(max - min) + min; }
+    public static int getRandInt(int min, int max){
+        if( min == max ) return min;
+        return generator.nextInt(max - min) + min; }
 
 }
