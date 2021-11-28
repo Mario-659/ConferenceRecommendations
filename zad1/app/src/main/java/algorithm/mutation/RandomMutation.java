@@ -23,7 +23,7 @@ public class RandomMutation implements Mutation {
 
     @Override
     public Genome mutate(Genome genome, int numOfMutations) {
-        if(!Rand.getBool(25)) return genome;
+        if(!Rand.getBool(CHANCE_OF_MUTATION)) return genome;
 
         //TODO refactor to makePossibleConnections method
         List<Person> oldConnections = genome.getConnections();

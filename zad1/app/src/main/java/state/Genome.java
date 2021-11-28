@@ -6,7 +6,6 @@ import data.Person;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO it is not actually a genome, genome is each connection, change name of this class
 public class Genome {
     private final Person person;
     private List<Person> connections;
@@ -14,7 +13,7 @@ public class Genome {
 
     public Genome(Person person, List<Person> connections){
         this.person = person;
-        this.connections = new ArrayList<Person>();
+        this.connections = new ArrayList<>();
         for (Person personToAdd : connections) {
             if(personToAdd.getId() != this.person.getId()) this.connections.add(personToAdd);
         }

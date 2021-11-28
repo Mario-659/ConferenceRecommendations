@@ -8,7 +8,7 @@ import tools.Rand;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO add extracting best genomes
+
 public class State {
     private static final int NUM_OF_CONNECTIONS = 5;
 
@@ -45,6 +45,16 @@ public class State {
 
     public State(List<Person> persons) {this(persons, NUM_OF_CONNECTIONS);}
 
+    public int getScore(){return score;}
+
+    public void update(){
+        for (Population population : populations) {
+            population.nextGeneration();
+        }
+        setBestGenomes();
+        evaluate();
+    }
+
     public String toString(){
         StringBuilder string = new StringBuilder();
         string.append("Value of configuration: ");
@@ -54,14 +64,5 @@ public class State {
             string.append(genome.toString());
         }
         return string.toString();
-    }
-    public int getScore(){return score;}
-
-    public void update(){
-        for (Population population : populations) {
-            population.nextGeneration();
-        }
-        setBestGenomes();
-        evaluate();
     }
 }

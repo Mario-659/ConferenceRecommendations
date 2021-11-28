@@ -17,7 +17,7 @@ public class Rand {
         Collections.shuffle(randList);
         List<Person> randConnections = new ArrayList<>();
 
-        for (Person person : persons) {
+        for (Person person : randList) {
             if(person.getId() != exclude.getId()) randConnections.add(person);
             if(randConnections.size() == numOfConnections) break;
         }
