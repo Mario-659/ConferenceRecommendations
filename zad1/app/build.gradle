@@ -28,3 +28,13 @@ application {
     // Define the main class for the application.
     mainClass = 'zad1.App'
 }
+
+jar {
+    manifest {
+        attributes "Main-Class": "Main"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
