@@ -8,6 +8,7 @@ import state.Genome;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class RandomMutationTest {
@@ -28,5 +29,19 @@ public class RandomMutationTest {
         int oldSize = genome.getConnections().size();
         int newSize =  newGenome.getConnections().size();
         assertEquals(oldSize, newSize);
+    }
+
+    @Test public void noDuplicates(){
+        List<Person> genomes = newGenome.getConnections();
+        HashSet<Person> personHashSet = new HashSet<>(genomes);
+        assertEquals(personHashSet.size(), genomes.size());
+    }
+
+    @Test public void loop(){
+        for(int i=0; i<1000; i++){
+            newGenome = randomMutation.mutate(newGenome, 2);
+            sameSize();
+            noDuplicates();
+        }
     }
 }

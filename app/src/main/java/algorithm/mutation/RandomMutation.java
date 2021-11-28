@@ -10,7 +10,7 @@ import java.util.List;
 public class RandomMutation implements Mutation {
     private final List<Person> allPersons;
 
-    private final int CHANCE_OF_MUTATION = 50;
+    private final int CHANCE_OF_MUTATION = 25;
 
     public RandomMutation(List<Person> allPersons){
         this.allPersons = allPersons;
@@ -25,7 +25,6 @@ public class RandomMutation implements Mutation {
     public Genome mutate(Genome genome, int numOfMutations) {
         if(!Rand.getBool(CHANCE_OF_MUTATION)) return genome;
 
-        //TODO refactor to makePossibleConnections method
         List<Person> oldConnections = genome.getConnections();
         List<Person> possibleMutations = new ArrayList<>();
         Person personToExclude = genome.getPerson();

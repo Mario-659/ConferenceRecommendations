@@ -28,4 +28,9 @@ public class Person {
     public HashSet<String> getAttributes(){ return this.attributes; }
 
     public HashSet<String> getWantedAttributes(){ return this.wantedAttributes; }
+
+    @Override
+    public String toString() {
+        return "Person id: " + id;
+    }
 }

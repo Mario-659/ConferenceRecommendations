@@ -48,4 +48,9 @@ public class RandomGenesTest {
         assertEquals(2, offspring.size());
     }
 
+    @Test
+    public void loop(){
+        offspring = randomGenes.crossover(genome1, genome2);
+        noDuplicates();
+    }
 }

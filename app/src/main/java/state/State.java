@@ -12,7 +12,7 @@ import java.util.List;
 
 
 public class State {
-    private static final int NUM_OF_CONNECTIONS = 5;
+    private static final int DEFAULT_NUM_OF_CONNECTIONS = 5;
 
     List<Population> populations;
     List<Genome> bestGenomes;
@@ -46,7 +46,7 @@ public class State {
         evaluate();
     }
 
-    public State(List<Person> persons) {this(persons, NUM_OF_CONNECTIONS);}
+    public State(List<Person> persons) {this(persons, DEFAULT_NUM_OF_CONNECTIONS);}
 
     public int getScore(){return score;}
 
