@@ -54,6 +54,8 @@ public class RandomGenes implements Crossover{
         for(int i=0; i<parents.size()-1; i+=2){
             List<Genome> genomesToAdd = crossover(parents.get(i), parents.get(i+1));
             offspring.addAll(genomesToAdd);
+            genomesToAdd = crossover(parents.get(i), parents.get(i+1));
+            offspring.addAll(genomesToAdd);
         }
         return offspring;
     }

@@ -2,7 +2,7 @@ package state;
 
 import algorithm.mate.Mate;
 import algorithm.mate.crossover.RandomGenes;
-import algorithm.mate.selection.RankSelection;
+import algorithm.mate.selection.BestParentsSelection;
 import algorithm.mutation.RandomMutation;
 import data.Person;
 import tools.Rand;
@@ -40,7 +40,7 @@ public class State {
         }
         populations = new ArrayList<>();
         for (Genome genome : bestGenomes) {
-            Mate matingStrategy = new Mate(new RandomGenes(), new RankSelection());
+            Mate matingStrategy = new Mate(new RandomGenes(), new BestParentsSelection());
             populations.add(new Population(genome, new RandomMutation(persons), matingStrategy));
         }
         evaluate();
